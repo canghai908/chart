@@ -6,4 +6,8 @@ class health(models.Model):
     ping = models.IntegerField(max_length=30)
     def __unicode__(self):
     	return self.host
-
+clas  User(models.Model):
+	username = models.CharField(max_length=30)
+	password = models.CharField(max_length=100)
+	def __unicode__(self):
+		return self.username
