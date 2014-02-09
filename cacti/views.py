@@ -11,7 +11,7 @@ class UserForm(forms.Form):
 	usergname = forms.CharField()
 	password = forms.CharField(widget = forms.PasswordInput)
 def regist(request):
-	if request.method =="POST":
+	if request.method =='POST':
 		uf = UserForm(request.POST)
 		if uf.is_valid():
 			username = uf.cleaned_data['username']
