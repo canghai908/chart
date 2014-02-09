@@ -15,6 +15,14 @@
 <li>{{host}}</li>
 {%endfor%}
 </ol>
+<br>
+<ol>
+{% for i in hosts %}
+<li>{{i.host}}</li>
+<li>{{i.ping}}</li>
+{%endfor%}
+</ol>
+</br>
 
 <div class="bs-example">
       <table class="table">
@@ -39,7 +47,6 @@
             <td>Column content</td>
             <td>Column content</td>
           </tr>
-          
         </tbody>
       </table>
 </div><!-- /example -->
