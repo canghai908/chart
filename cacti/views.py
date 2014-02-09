@@ -8,7 +8,7 @@ def show(request):
     hosts = health.objects.all()
     return render_to_response('show.html',{'hosts':hosts})
 class UserForm(forms.Form):
-	usrename = forms.CharField()
+	usergname = forms.CharField()
 	password = forms.CharField(widget = forms.PasswordInput)
 def regist(request):
 	if request.method =="POST":
