@@ -18,8 +18,17 @@
 <input type="reset" value="reset" class="reset" />
 </p>
 <p>
+
 {% load bootstrap %}
+<form class="form" role="form">
 
 {{ form|bootstrap }}
+
+<div class="form-group">
+    <div class="col-sm-12">
+    <input type="button" class="btn btn-primary" value="Submit" />
+    </div>
+</div>
+</form>
 </p>
 </body>
