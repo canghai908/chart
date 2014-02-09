@@ -4,4 +4,4 @@ from django.contrib import admin
 from cacti.models import User
 class UserAdmin(admin.ModelAdmin):
 	list_display = ('username','password')
-admin.site.Register(User,UserAdmin)
+admin.site.register(User,UserAdmin)
