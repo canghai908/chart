@@ -30,12 +30,12 @@
         <tbody>
         {% for i in hosts %}
             <tr class="success">
-            <td>{{i}}</td>
+            <td>{{i.id}}</td>
             <td>{{i.host}}</td>
             <td>{{i.ping}}</td>
             <td>Linux</td>
             </tr>
-         {%endfor%}
+        {%endfor%}
         </tbody>
       </table>
 </div><!-- /example -->
