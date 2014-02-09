@@ -24,7 +24,7 @@ def regist(request):
 def login(request):
 	if request.method == 'POST':
 		uf = UserForm(request.POST)
-		if uf.is_valid();
+		if uf.is_valid():
 			username = uf.cleaned_data['username']
 			password = uf.cleaned_data['password']
 			user = User.objects.filter(username__exact = username, password_exact = password)
