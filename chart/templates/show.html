@@ -15,14 +15,7 @@
 <li>{{host}}</li>
 {%endfor%}
 </ol>
-<br>
-<ol>
-{% for i in hosts %}
-<li>{{i.host}}</li>
-<li>{{i.ping}}</li>
-{%endfor%}
-</ol>
-</br>
+
 
 <div class="bs-example">
       <table class="table">
@@ -35,17 +28,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="active">
-            <td>1</td>
-            <td>xx</td>
-            <td>xx</td>
-            <td>Linux</td>
-          </tr>
-          <tr class="success">
+            <tr class="success">
             <td>2</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
+            {% for i in hosts %}
+            <td>{{i.host}}</td>
+            <td>{{i.ping}}</td>
+            <td>Linux</td>
+            {%endfor%}
           </tr>
         </tbody>
       </table>
