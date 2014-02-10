@@ -16,9 +16,8 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
-    url(r'^show/$','cacti.views.show'),
+    url(r'^index/$','cacti.views.index'),
     url(r'^regist/$','cacti.views.regist'),
     url(r'^login/$','cacti.views.login'),
-    url(r'^index/$','cacti.views.index'),
     url(r'^logout/$','cacti.views.logout'),
 )
