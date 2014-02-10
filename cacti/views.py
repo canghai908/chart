@@ -4,9 +4,6 @@ from django.http import HttpResponse,HttpResponseRedirect
 from cacti.models import health,User
 from django import forms
 
-def show(request):
-    hosts = health.objects.all()
-    return render_to_response('show.html',{'hosts':hosts})
 class UserForm(forms.Form):
 	username = forms.CharField()
 	password = forms.CharField(widget = forms.PasswordInput)
@@ -36,13 +33,20 @@ def login(request):
 	else:
 		uf = UserForm()
 	return render_to_response('login.html',{'uf':uf})
+
+
+#def show(request):
+#    hosts = health.objects.all()
+#   return render_to_response('show.html',{'hosts':hosts})
+
 def index(request):
+	hosts = health.objects.all()
 	username = request.session.get('username','anybody')
 	return render_to_response('index.html',{'username':username})
 def logout(request):
 	session = request.session.get('username',False)
 	if session:
 		del request.session['username']
-		return render_to_response('login.html',{'username':username})
+		return render_to_response('login.html',{'username':username},{'hosts':hosts})
 	else:
 		return HttpResponse('please login!')
