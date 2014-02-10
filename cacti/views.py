@@ -30,7 +30,7 @@ def login(request):
 			user = User.objects.filter(username__exact = username, password_exact = password)
 			if user:
 				request.session['username'] = username
-				return HttpResponseRedirect('/index/')
+				return HttpResponseRedirect('/show/')
 			else:
 				return HttpResponseRedirect('/login/')
 	else:
