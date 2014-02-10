@@ -20,4 +20,6 @@ urlpatterns = patterns('',
     url(r'^regist/$','cacti.views.regist'),
     url(r'^login/$','cacti.views.login'),
     url(r'^logout/$','cacti.views.logout'),
+    url(r'^chart/$','cacti.views.chart'),
+
 )

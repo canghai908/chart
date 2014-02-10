@@ -50,3 +50,6 @@ def logout(request):
 		return render_to_response('login.html',{'username':session})
 	else:
 		return HttpResponse('please login!')
+def chart(request):
+	hosts = health.objects.all()
+	return render_to_response('chart.html',{'hosts':hosts})
