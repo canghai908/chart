@@ -27,7 +27,7 @@ def login(request):
 		if uf.is_valid():
 			username = uf.cleaned_data['username']
 			password = uf.cleaned_data['password']
-			user = User.objects.filter(username__exact = username, password_exact = password)
+			user = User.objects.filter(username__exact = username, password__exact = password)
 			if user:
 				request.session['username'] = username
 				return HttpResponseRedirect('/show/')
