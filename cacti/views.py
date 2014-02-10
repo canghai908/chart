@@ -42,7 +42,7 @@ def login(request):
 def index(request):
 	hosts = health.objects.all()
 	username = request.session.get('username','anybody')
-	return render_to_response('index.html',{'username':username},{'hosts':hosts})
+	return render_to_response('index.html',{'username':username,'hosts':hosts})
 def logout(request):
 	session = request.session.get('username',False)
 	if session:
