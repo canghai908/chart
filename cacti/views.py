@@ -47,6 +47,6 @@ def logout(request):
 	session = request.session.get('username',False)
 	if session:
 		del request.session['username']
-		return render_to_response('login.html',{'username':username})
+		return render_to_response('login.html',{'username':session})
 	else:
 		return HttpResponse('please login!')
