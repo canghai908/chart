@@ -33,7 +33,7 @@
       </table>
 </div>
 <!-- 绘图区域 -->
-
+{% for i in hosts %}
 <canvas id="pieArea" height="500" width="500"></canvas>
 <script>
 <!-- 饼图用数据 -->
@@ -62,5 +62,6 @@ var pieOption ={
 };
 var myPie = new Chart(document.getElementById("pieArea").getContext("2d")).Pie(pieData,pieOption);
 </script>
+{%endfor%}
 </body>
 </html>
