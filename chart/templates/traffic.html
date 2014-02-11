@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<title>使用Chart.js绘制饼图</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- 脚本文件引用 -->
+<script src="/static/js/Chart.js"></script>
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+</head> 
+<body>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<div class="bs-example">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>NUM</th>
+            <th>HOSTNAME</th>
+            <th>PING(ms)</th>
+            <th>OS</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for i in hosts %}
+            <tr class="success">
+            <td>{{i.id}}</td>
+            <td>{{i.host}}</td>
+            <td>{{i.ping}}</td>
+            <td>Linux</td>
+            </tr>
+        {%endfor%}
+        </tbody>
+      </table>
+</div>
+
+
+<div class="bs-example">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>NUM</th>
+            <th>HOSTNAME</th>
+            <th>PING(ms)</th>
+            <th>OS</th>
+            <th>DATE</th>
+            <th>Traffic_in</th>
+            <th>Traffic_out</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for i in hosts %}
+            <tr class="success">
+            <td>{{i.id}}</td>
+            <td>{{i.host}}</td>
+            <td>{{i.ping}}</td>
+            <td>Linux</td>
+            <td>{{i.date}}</td>
+            <td>{{i.traffic_in}}</td>
+            <td>{{i.traffic_out}}</td>
+            </tr>
+        {%endfor%}
+        </tbody>
+      </table>
+</div>
+
+
+
+<!-- 绘图区域 -->
+{% for i in hosts %}
+<canvas id="pieArea" height="500" width="500"></canvas>
+<script>
+<!-- 饼图用数据 -->
+var pieData = [
+{
+    value: {{i.ping}},
+    color:"#F38630"
+},
+{
+    value : 36,
+    color : "#E0E4CC"
+},
+{
+    value : 28,
+    color :  "#69D2E7"
+}];
+var pieOption ={
+    segmentStrokeColor : "#666",// 分隔线的颜色
+    segmentStrokeWidth : 5,     // 分隔线的宽度
+    animation : true,      // 不使用动画效果
+    segmentShowStroke : false,
+    animateScale : true,
+    animationEasing : "easeOutBounce",
+    animateScale : false
+    
+};
+var myPie = new Chart(document.getElementById("pieArea").getContext("2d")).Pie(pieData,pieOption);
+</script>
+{%endfor%}
+</body>
+</html>

@@ -21,5 +21,6 @@ urlpatterns = patterns('',
     url(r'^login/$','cacti.views.login'),
     url(r'^logout/$','cacti.views.logout'),
     url(r'^chart/$','cacti.views.chart'),
+    url(r'^traffic/$','cacti.views.traffic'),
 
 )
