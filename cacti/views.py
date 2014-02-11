@@ -53,3 +53,6 @@ def logout(request):
 def chart(request):
 	hosts = health.objects.all()
 	return render_to_response('chart.html',{'hosts':hosts})
+def traffic(request):
+	hosts = health.objects.all()
+	return render_to_response('traffic.html',{'hosts':hosts})
