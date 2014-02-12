@@ -14,9 +14,9 @@ times = int(time)
 
 conn = MySQLdb.connect(host="localhost",user="chart",passwd="tobaby",db="chart",charset="utf8")
 db = conn.cursor()
-sql = "insert into cacti_health values(NULL,WEB,35,11111111,%s,%s)"
+sql = "insert into cacti_health values(NULL,%,%,%,%s,%s)"
 for x in range(time):
-	db.execute(sql,data[2][x][0],data[2][x][1])
+	db.execute(sql,["WEB","35","11111",data[2][x][0],data[2][x][1]])
 conn.commit()
 conn.close()
 """
