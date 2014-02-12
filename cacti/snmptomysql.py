@@ -17,3 +17,5 @@ conn = MySQLdb.connect(host="localhost",user="chart",passwd="tobaby",db="chart",
 db = conn.cursor()
 sql = "insert into cacti_health values(NULL,'web','36','11111',%s,%s)"
 db.execute(sql,[output[0],output[1]])
+conn.commit()
+conn.close()
