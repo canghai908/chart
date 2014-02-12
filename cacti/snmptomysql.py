@@ -1,7 +1,6 @@
 # coding: utf-8
 #!/usr/bin/python
 import netsnmp
-import rrdtool
 import MySQLdb
 
 ip='127.0.0.1'
@@ -11,6 +10,7 @@ ver = 2
 fd = netsnmp.Session(DestHost=ip,Version=ver,RemotePort=snmpport,Timeout=400000,Retries=1,Community=string)
 Inbytes = netsnmp.Varbind('ifInOctets.2')
 Outbytes = netsnmp.Varbind('ifOutOctets.2')
+list = [Inbytes,Outbytes]
 output = fd.get(list)
 
 conn = MySQLdb.connect(host="localhost",user="chart",passwd="tobaby",db="chart",charset="utf8")
