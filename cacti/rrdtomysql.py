@@ -10,11 +10,12 @@ firsttime =data[0][0]
 endtime = data[0][1]
 step = data[0][2]
 time = (endtime - firsttime)/step
+times = int(time)
 
 conn = MySQLdb.connect(host="localhost",user="chart",passwd="tobaby",db="chart",charset="utf8")
 db = conn.cursor()
 sql = "insert into cacti_health values(NULL,WEB,35,11111111,%s,%s)"
-for x in time:
+for x in times:
 	db.execute(sql,data[2][x][0],data[2][x][1])
 conn.commit()
 conn.close()
